@@ -1,0 +1,17 @@
+indexArray = []
+bounds = []
+for each index in B
+	if index == v
+		add v to indexArray
+if k < indexArray.length
+	return -1
+cursor1 = 0
+cursor2 = k-1
+min = B.length
+while(cursor2 < indexArray.length)
+	tempMin = indexArray[cursor2] - indexArray[cursor1]
+	if tempMin < min
+		bounds = [indexArray[cursor1],indexArray[cursor2]]
+	cursor1++
+	cursor2++
+return bounds

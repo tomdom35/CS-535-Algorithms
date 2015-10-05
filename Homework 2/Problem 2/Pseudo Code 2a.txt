@@ -1,0 +1,23 @@
+subArrays = []
+cursor1 = 0
+cursor2 = 0
+while cursor1 < B.length
+	while cursor2 < B.length
+		tempArray = [B[cursor1]...B[cursor2]]
+		add tempArray to subArrays
+		cursor2++
+	cursor1++
+	cursor2 = cursor1
+
+finalArray = []	
+for each index 's' in subArrays
+	if (s contains k v's) and ((finalArray is empty) or (s.length < finalArray.length))
+			finalArray = s
+if finalArray is empty
+	return -1
+else
+	for i <-- 0 to B.length-1
+		if B[i] == finalArray[0]
+			checkArray = B[i...finalArray.length-1]
+			if checkArray = finalArray
+				return [i,i+finalArray.length-1]
