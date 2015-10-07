@@ -78,7 +78,6 @@ def findRightMost(v):
 def inOrderPlot(v,x,y):
     if v.leftChild is not None:
         inOrderPlot(v.leftChild,x,y+1)
-        #v.x = v.leftChild.x+1
         v.x = findRightMost(v.leftChild).x+1
         v.y = y
         grid[v.y][v.x] = "O"
