@@ -1,8 +1,8 @@
 #Generate Vectors
 from random import randint
 vectors = []
-k = 6
-n = 6
+k = 3
+n = 3
 maxNum = 10
 for i in range(0,k):
     newVect = []
@@ -14,7 +14,6 @@ for i in range(0,k):
 
 #Algorithm
 index = [0]*k
-minVal = None
 done = False
 finalVect = [None]*(k*n)
 j = 0
