@@ -1,0 +1,66 @@
+----------------
+QUESTION 2a
+----------------
+P = [-3,2,4,-1,-5]
+flip(5)
+P = [5,1,-4,-2,3]
+flip(1)
+P = [-5,1,-4,-2,3]
+flip(5)
+P = [-3,2,4,-1,5]
+flip(3)
+P = [-4,-2,3,-1,5]
+flip(4)
+P = [1,-3,2,4,5]
+flip(2)
+P = [3,-1,2,4,5]
+flip(1)
+P = [-3,-1,2,4,5]
+flip(3)
+P = [-2,1,3,4,5]
+flip(2)
+P = [-1,2,3,4,5]
+flip(1)
+P = [1,2,3,4,5]
+
+----------------
+QUESTION 2b
+----------------
+findMaxIndex(nums,lastIndex)
+    for i=0 --> lastIndex+1
+        if(abs(nums[i]) > lastIndex+1)
+            return i
+	
+flip(nums, flipIndex)
+    index = flipIndex - 1
+    for i=0 --> (floor)flipIndex/2
+        tempVal = nums[i]
+        nums[i] = nums[index-i]*-1
+        nums[index-i] = tempVal*-1
+    if((flipIndex%2) == 1)
+        nums[(floor)(flipIndex/2)]*=-1
+
+getStack(nums)
+	numFlips = 0
+	lastIndex = nums.size - 1
+	while(lastIndex>=0)
+		maxIndex = findMaxIndex(nums,lastIndex)
+		if not(maxIndex == lastIndex and nums[maxIndex] > 0)
+			flip(nums,maxIndex+1)
+			if(nums[0]>0)
+				flip(nums,1)
+			flip(nums,lastIndex+1)
+		lastIndex-=1
+	
+----------------
+QUESTION 2c
+----------------
+flip(i) will take O(i)
+	- We are swapping and changing the sign of i items.
+
+The above algorithm will make 3n flips in the worst case scenario. (Repeat below process for each item in list).
+	- One flip to get the current largest number to the front of the list.
+	- One flip to change the sign of the current largest number.
+	- One flip to get the current largest number to the end of the list.
+	
+The above algorithm (2b) will run in O(n^2) time.
